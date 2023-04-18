@@ -12,6 +12,15 @@ class Film
 Harrison Ford, Luke Skywalker a été incarné par Mark Hamill, ...)  */
 
 
+public function __construct( $titre,$dateDeSortieFrance,$dure, $synopsis="") {
+    $this->titre = $titre;
+    $this->dateDeSortieFrance = new DateTime($dateDeSortieFrance);
+    $this->dure = $dure;
+    $this->synopsis = $synopsis;
+    // $this->realisateur = $realisateur;
+
+
+}
 
 
 

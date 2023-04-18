@@ -1,4 +1,9 @@
 <?php
+
+spl_autoload_register(function ($class_name) 
+{
+    include $class_name . '.php';
+});
 /*
 Exercices POO
 
@@ -27,37 +32,10 @@ Lister la filmographie d'un réalisateur (quels sont les films qu'a réalisé ce
 
 */
 
-
-/* Les films seront caractérisés par leur titre,
- leur date de sortie en France, 
- leur durée (en minutes)
-ainsi que leur réalisateur (unique, avec nom, prénom, sexe et date de naissance). 
-Un résumé du film
-(synopsis) pourra éventuellement être renseigné.
- 
-
- extend ?
- Chaque film est caractérisé par un seul genre
-cinématographique (science-fiction, aventure, action, ...).
-
-Acteur 
-nom
-prenom
-sexe
-date de naisance
-role jouer
+$fantomas = new Film("fantomas","1964",104,"André Hunebelle", );
+ echo $fantomas->getTitre();
 
 
-producteur
-nom
-prénom
-sexe
-date de naissance
+ $louisDeFunes =new Acteur("louis","de Funès", "Monsieur");
 
-
-role
-nom
-Acteur 
-Film
-
-
+ echo $louisDeFunes->getNom();

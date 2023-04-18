@@ -1,11 +1,25 @@
 <?php
-abstract class  Persone 
+abstract class  Personne 
 {
-    protected String $nom;
-    protected String $prenom;
-    protected String $sexe;
+    protected string $nom;
+    protected string $prenom;
+    protected string $sexe;
 
     protected DateTime $dateNaissance;
+
+
+    public function __construct($nom,$prenom,$sexe)
+    {
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+        $this->sexe = $sexe;
+    }
+
+
+
+
+
+
 
     /**
      * Get the value of nom
