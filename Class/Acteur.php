@@ -3,10 +3,12 @@
 class Acteur extends Personne
 {
     
+    private array $audition;
 
 public function __construct($nom, $prenom,$sexe)
 {
    parent::__construct($nom, $prenom,$sexe);
+   $this->audition=[];
 }
 
 // Lister la filmographie d'un acteur (dans quels films a-t-il joué ?)
@@ -51,4 +53,11 @@ public function __construct($nom, $prenom,$sexe)
 
 //         return $this;
 //     }
+
+
+
+public function addaddAudition (Audition $audition)
+{
+    $this->audition[]=$audition;
+}
 }

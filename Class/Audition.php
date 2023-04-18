@@ -4,6 +4,17 @@ class Audition
 {
  private Film $film;
  private Role $role;
+ private Acteur $acteur;
+
+
+
+ public function __construct(Film $film,Role $role, Acteur $acteur) {
+    $this->film = $film;
+    $this->role = $role;
+    $this->acteur = $acteur;
+
+
+ }
     
 
 
@@ -50,6 +61,26 @@ class Audition
  public function setRole($role)
  {
   $this->role = $role;
+
+  return $this;
+ }
+
+ /**
+  * Get the value of acteur
+  */ 
+ public function getActeur()
+ {
+  return $this->acteur;
+ }
+
+ /**
+  * Set the value of acteur
+  *
+  * @return  self
+  */ 
+ public function setActeur($acteur)
+ {
+  $this->acteur = $acteur;
 
   return $this;
  }
