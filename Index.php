@@ -55,6 +55,10 @@ $fantomas = new Film("fantomas","1964",104,"André Hunebelle", );
  $auditionFantomas = new Audition($fantomas, $paulJuve, $louisDeFunes);
 
 
+$louisDeFunes->filmographie() ;
+ 
+
+
 
 
 

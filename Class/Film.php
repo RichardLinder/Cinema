@@ -127,10 +127,19 @@ public function __construct( $titre,$dateDeSortieFrance,$dure, $synopsis="") {
     }
 
 
-    public function addaddAudition (Audition $audition)
-{
-    $this->audition[]=$audition;
-}
+        public function addaddAudition (Audition $audition)
+    {
+        $this->audition[]=$audition;
+    }
+
+
+    
+
+
+    public function __toString()
+    {
+        return $this->titre;
+    }
 
 
 

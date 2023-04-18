@@ -1,63 +1,57 @@
 <?php
 
 class Acteur extends Personne
+
 {
     
-    private array $audition;
+    private array $auditions;
 
 public function __construct($nom, $prenom,$sexe)
 {
    parent::__construct($nom, $prenom,$sexe);
-   $this->audition=[];
+   $this->auditions=[];
 }
 
-// Lister la filmographie d'un acteur (dans quels films a-t-il joué ?)
 
-// -----------------------------------------------------------------------Getter Setter
-    /**
-//      * Get the value of role
-//      */ 
-//     public function getRole()
-//     {
-//         return $this->role;
-//     }
 
-// //     /**
-// //      * Set the value of role
-// //      *
-// //      * @return  self
-//      */ 
-//     public function setRole($role)
-//     {
-//         $this->role = $role;
+//-------------------------------------------------------methode
 
-//         return $this;
-//     }
 
-//     /**
-//      * Get the value of film
-//      */ 
-//     public function getFilm()
-//     {
-//         return $this->film;
-//     }
+    // Lister la filmographie d'un acteur (dans quels films a-t-il joué ?)
 
-//     /**
-//      * Set the value of film
-//      *
-//      * @return  self
-//      */ 
-//     public function setFilm($film)
-//     {
-//         $this->film = $film;
-
-//         return $this;
-//     }
-
+public function filmographie() 
+{
+    $result ="";
+    foreach ($this->auditions as $audition) 
+    {
+      $result.= $audition->getfilm();
+    }
+return $result;
+}
 
 
 public function addaddAudition (Audition $audition)
 {
-    $this->audition[]=$audition;
+    $this->auditions[]=$audition;
 }
+
+    /**
+     * Get the value of auditions
+     */ 
+    public function getAuditions()
+    {
+        return $this->auditions;
+    }
+
+    /**
+     * Set the value of auditions
+     *
+     * @return  self
+     */ 
+    public function setAuditions($auditions)
+    {
+        $this->auditions = $auditions;
+
+        return $this;
+    }
 }
