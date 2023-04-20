@@ -2,20 +2,37 @@
 
 class Audition
 {
- private Film $film;
- private Role $role;
- private Acteur $acteur;
+ private film  $films;
+ private role $role;
+ private acteur $acteur;
 
 
 
- public function __construct(Film $film,Role $role, Acteur $acteur) {
+ public function __construct( Acteur $acteur, Role $role, Film $film ) {
     $this->film = $film;
-    $this->role = $role;
+    $this->role= $role;
     $this->acteur = $acteur;
+    $this->acteur->addAudition($this);
+    $this->role->addAudition($this);
+    $this->film->addAudition($this);
 
 
  }
     
+//____________________________methodes
+
+public function filmographie()
+{
+    $result =$this->film->getTitre();
+    return $result;
+}
+
+public function getActeur()
+{
+    $result =$this->acteur->getNom()." ".$this->acteur->getPrenom()."<br>";
+    return $result;
+}
+
 
 
 
@@ -23,64 +40,62 @@ class Audition
 
 
 // -------------------------------------------getter setter
-
-
  /**
-  * Get the value of film
+  * Get the value of films
   */ 
- public function getFilm()
+ public function getFilms()
  {
-  return $this->film;
+  return $this->films;
  }
 
  /**
-  * Set the value of film
+  * Set the value of films
   *
   * @return  self
   */ 
- public function setFilm($film)
+ public function setFilms($films)
  {
-  $this->film = $film;
+  $this->films = $films;
 
   return $this;
  }
 
  /**
-  * Get the value of role
+  * Get the value of roles
   */ 
- public function getRole()
+ public function getRoles()
  {
-  return $this->role;
+  return $this->roles;
  }
 
  /**
-  * Set the value of role
+  * Set the value of roles
   *
   * @return  self
   */ 
- public function setRole($role)
+ public function setRoles($roles)
  {
-  $this->role = $role;
+  $this->roles = $roles;
 
   return $this;
  }
 
  /**
-  * Get the value of acteur
+  * Get the value of acteurs
   */ 
- public function getActeur()
+ public function getActeurs()
  {
-  return $this->acteur;
+  return $this->acteurs;
  }
 
  /**
-  * Set the value of acteur
+  * Set the value of acteurs
   *
   * @return  self
   */ 
- public function setActeur($acteur)
+ public function setActeurs($acteurs)
  {
-  $this->acteur = $acteur;
+  $this->acteurs = $acteurs;
 
   return $this;
  }

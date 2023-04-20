@@ -3,7 +3,15 @@
 class Genre 
 {
     private  array $films;
-    private string $noms;
+    private string $nom;
+
+
+    public function __construct ( string $nom)
+    {
+        $this->$nom = $nom;
+        $this->films=[];
+    }
+                                                                                                                        
 
 
 //---------------------------------------------------------------------------------------------getter setter

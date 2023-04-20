@@ -2,45 +2,27 @@
 
 class Acteur extends Personne
 
+
 {
     
     private array $auditions;
 
-public function __construct($nom, $prenom,$sexe)
+public function __construct( string $nom, string $prenom, string $sexe)
 {
    parent::__construct($nom, $prenom,$sexe);
    $this->auditions=[];
+   
 }
 
 
 
-//-------------------------------------------------------methode
-
-
-    // Lister la filmographie d'un acteur (dans quels films a-t-il joué ?)
-
-public function filmographie() 
-{
-    $result ="";
-    foreach ($this->auditions as $audition) 
-    {
-      $result.= $audition->getfilm();
-    }
-return $result;
-}
-
-
-public function addaddAudition (Audition $audition)
-{
-    $this->auditions[]=$audition;
-}
 
     /**
      * Get the value of auditions
      */ 
-    public function getAuditions()
+    public function getAudition()
     {
-        return $this->auditions;
+        return $this->audition;
     }
 
     /**
@@ -48,10 +30,31 @@ public function addaddAudition (Audition $audition)
      *
      * @return  self
      */ 
-    public function setAuditions($auditions)
+    public function setAudition($audition)
     {
-        $this->auditions = $auditions;
+        $this->audition = $audition;
 
         return $this;
     }
+    //-------------------------------------------------------methode
+
+
+    // Lister la filmographie d'un acteur (dans quels films a-t-il joué ?)
+
+
+    public function filmographie() 
+    {
+        $result ="<h2> $this->nom $this->prenom a jouer :.</h2>";
+        foreach ($this->auditions as $audition) 
+        {
+          $result.= $audition->filmographie()."<br>";
+        }
+    return $result;
+    }
+
+    public function addAudition (Audition $audition)
+    {
+        $this->auditions[]=$audition;
+    }
+
 }

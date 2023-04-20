@@ -2,7 +2,15 @@
 
 class Realisateur
 {
-    private Film $film;
+    private array $films;
+
+
+    public function __construct($nom, $prenom,$sexe)
+{
+   parent::__construct($nom, $prenom,$sexe);
+   $this->films=[];
+}
+
 
 //Lister la filmographie d'un réalisateur (quels sont les films qu'a réalisé ce réalisateur ?)
 
@@ -25,4 +33,11 @@ class Realisateur
 
         return $this;
     }
+
+
+    
+public function addFilm (Film $film)
+{
+    $this->films[]=$film;
+}
 }

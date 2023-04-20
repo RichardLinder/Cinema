@@ -2,7 +2,7 @@
 class role
 {
     private string  $nom;
-    private array $audition;
+    private array $auditions;
 
 
 /*Lister la liste des acteurs ayant incarné un rôle précis (ex: les acteurs ayant joué le rôle de
@@ -11,8 +11,7 @@ Batman : Michael Keaton, Val Kilmer, George Clooney, ...) */
 public function __construct(string $nom) 
 {
     $this->nom = $nom;
-
-    $this->audition=[];
+    $this->auditions=[];
 }
 
 
@@ -40,10 +39,22 @@ public function __construct(string $nom)
 
 //____________________________________________methode
 
-
-public function addaddAudition (Audition $audition)
+public function addAudition (Audition $audition)
 {
-    $this->audition[]=$audition;
+    $this->auditions[]=$audition;
 }
+
+
+public function getActeur() 
+{
+    $result ="<h2> Les acteur qui on jouer  $this->nom sont :.</h2>";
+    foreach ($this->auditions as $audition) 
+    {
+      $result.= $audition->getActeur();
+    }
+return $result;
+}
+
+
 }
 

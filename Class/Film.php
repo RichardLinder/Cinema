@@ -7,20 +7,22 @@ class Film
     private int $dure;
     private Realisateur $realisateur;
     private string  $synopsis;
-    private Audition $audition;
+    private Array $auditions;
+    private Genre $genre;
 
 /* Lister le casting d'un film (dans le film Star Wars Episode IV, Han Solo a été incarné par
 Harrison Ford, Luke Skywalker a été incarné par Mark Hamill, ...)  */
 
 
-public function __construct( $titre,$dateDeSortieFrance,$dure, $synopsis="") {
+public function __construct( string $titre, string $dateDeSortieFrance, int $dure , Genre $genre ,string  $synopsis="") {
     $this->titre = $titre;
     $this->dateDeSortieFrance = new DateTime($dateDeSortieFrance);
     $this->dure = $dure;
     $this->synopsis = $synopsis;
+    $this->genre =$genre;
     // $this->realisateur = $realisateur;
-
-
+    $this->audition = [];
+  
 }
 
 
@@ -127,10 +129,12 @@ public function __construct( $titre,$dateDeSortieFrance,$dure, $synopsis="") {
     }
 
 
-        public function addaddAudition (Audition $audition)
-    {
-        $this->audition[]=$audition;
-    }
+    public function addAudition (Audition $audition)
+{
+    $this->auditions[]=$audition;
+}
+
+
 
 
     
