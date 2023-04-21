@@ -46,30 +46,41 @@ spl_autoload_register(function ($class_name)
 $comedie = new Genre ("Comedie");
 $action = new Genre ( "Action");
 
- $louisDeFunes =new Acteur("louis","de Funès", "Monsieur");
- $paulJuve = new Role("Paul Juve");
- $LudovicCruchot = new Role ("Ludovic Cruchot");
- $fantomas = new Film("fantomas","1964",104,$comedie); 
- $gendarme = new Film ("Le Gendarme de Saint-Tropez", "1964",90);
- $batman = new Role ("Batman");
- $Batman1928 = new Film ("Batman 1928", 1928, 90,$comedie);
- $batman2008 =new Film ( "dark night", "2008", 120, $action );
- $AdamWest= new Acteur ("Adam","West","Monsieur");
+
+$JeanGirault= new Realisateur( "Jean", "Girault", "Monsieur" );
+$andreHunebelle = new Realisateur ("Hunebelle","André","Monsieur");
+
+$jeanMarais= new Acteur ("Jean  ","Marais","Monsieur");
+$louisDeFunes =new Acteur("louis","de Funès", "Monsieur");
 
 
- $auditionBatman1 = new Audition ($AdamWest ,$batman,$Batman1928);
+$paulJuve = new Role("Paul Juve");
+$LudovicCruchot = new Role ("Ludovic Cruchot");
+$fantomas = new Film("fantomas","1964-01-12",104,$comedie ,$andreHunebelle); 
+$gendarme = new Film ("Le Gendarme de Saint-Tropez", "1964-02-28",90, $comedie,$JeanGirault);
+$batman = new Role ("Batman");
+$Batman1928 = new Film ("Batman 1928", 1928, 90,$comedie,$andreHunebelle);
+$batman2008 =new Film ( "dark night", "2008", 120, $action,$andreHunebelle );
+$AdamWest= new Acteur ("Adam","West","Monsieur");
 
- $auditionBatman2 = new Audition ($louisDeFunes,$batman,$batman2008);
+$persoFantomas = new Role("Fantomas");
+$auditionBatman1 = new Audition ($AdamWest ,$batman,$Batman1928);
+$auditionBatman2 = new Audition ($louisDeFunes,$batman,$batman2008);
+$audition = new Audition($louisDeFunes,$paulJuve,$fantomas);
+$audition2 = new Audition ($louisDeFunes,$LudovicCruchot,$gendarme);
+$audition3 = new Audition ($jeanMarais,$persoFantomas, $fantomas);
 
- $audition = new Audition($louisDeFunes,$paulJuve,$fantomas);
-
- $audition2 = new Audition ($louisDeFunes,$LudovicCruchot,$gendarme);
 
 
-
-echo  $louisDeFunes->filmographie();
-echo $batman->getActeur()
-
+echo $jeanMarais->filmographie();
+echo $batman->getActeur();
+echo $andreHunebelle->filmographie();
+echo $action->filmographie(); 
+echo $gendarme->distributionDufilm();
+echo $fantomas->dureeHeure();
+echo $fantomas->dateDesortieFR();
+echo $gendarme->dureeHeure();
+echo $gendarme->dateDesortieFR();
  ?>    
 </body>
 </html>

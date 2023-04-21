@@ -7,12 +7,12 @@ class Acteur extends Personne
     
     private array $auditions;
 
-public function __construct( string $nom, string $prenom, string $sexe)
-{
-   parent::__construct($nom, $prenom,$sexe);
-   $this->auditions=[];
-   
-}
+    public function __construct( string $nom, string $prenom, string $sexe)
+    {
+    parent::__construct($nom, $prenom,$sexe);
+    $this->auditions=[];
+    
+    }
 
 
 
@@ -22,7 +22,7 @@ public function __construct( string $nom, string $prenom, string $sexe)
      */ 
     public function getAudition()
     {
-        return $this->audition;
+        return $this->auditions;
     }
 
     /**
@@ -32,7 +32,7 @@ public function __construct( string $nom, string $prenom, string $sexe)
      */ 
     public function setAudition($audition)
     {
-        $this->audition = $audition;
+        $this->auditions = $audition;
 
         return $this;
     }

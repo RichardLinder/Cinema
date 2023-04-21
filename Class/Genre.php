@@ -8,7 +8,7 @@ class Genre
 
     public function __construct ( string $nom)
     {
-        $this->$nom = $nom;
+        $this->nom = $nom;
         $this->films=[];
     }
                                                                                                                         
@@ -20,7 +20,7 @@ class Genre
      */ 
     public function getNoms()
     {
-        return $this->noms;
+        return $this->nom;
     }
 
     /**
@@ -30,7 +30,7 @@ class Genre
      */ 
     public function setNoms($noms)
     {
-        $this->noms = $noms;
+        $this->nom = $noms;
 
         return $this;
     }
@@ -53,5 +53,24 @@ class Genre
         $this->films = $films;
 
         return $this;
+    }
+
+
+    //-----------------------------------------methode
+    
+public function addFilm (Film $film)
+{
+    $this->films[]=$film;
+}
+
+
+public function filmographie() 
+    {
+        $result ="<h2> $this->nom  a les film suivants : </h2>";
+        foreach ($this->films as $film) 
+        {
+          $result.= $film->getTitre()."<br>";
+        }
+    return $result;
     }
 }

@@ -2,9 +2,9 @@
 
 class Audition
 {
- private film  $films;
- private role $role;
- private acteur $acteur;
+ private Film  $film;
+ private Role $role;
+ private Acteur $acteur;
 
 
 
@@ -45,7 +45,7 @@ public function getActeur()
   */ 
  public function getFilms()
  {
-  return $this->films;
+  return $this->film;
  }
 
  /**
@@ -55,7 +55,7 @@ public function getActeur()
   */ 
  public function setFilms($films)
  {
-  $this->films = $films;
+  $this->film = $films;
 
   return $this;
  }
@@ -65,7 +65,7 @@ public function getActeur()
   */ 
  public function getRoles()
  {
-  return $this->roles;
+  return $this->role;
  }
 
  /**
@@ -75,7 +75,7 @@ public function getActeur()
   */ 
  public function setRoles($roles)
  {
-  $this->roles = $roles;
+  $this->role = $roles;
 
   return $this;
  }
@@ -85,7 +85,7 @@ public function getActeur()
   */ 
  public function getActeurs()
  {
-  return $this->acteurs;
+  return $this->acteur;
  }
 
  /**
@@ -95,7 +95,7 @@ public function getActeur()
   */ 
  public function setActeurs($acteurs)
  {
-  $this->acteurs = $acteurs;
+  $this->acteur = $acteurs;
 
   return $this;
  }

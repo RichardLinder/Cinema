@@ -14,20 +14,44 @@ class Film
 Harrison Ford, Luke Skywalker a été incarné par Mark Hamill, ...)  */
 
 
-public function __construct( string $titre, string $dateDeSortieFrance, int $dure , Genre $genre ,string  $synopsis="") {
+public function __construct( string $titre, string $dateDeSortieFrance, int $dure , Genre $genre ,Realisateur $realisateur ,string  $synopsis="") {
     $this->titre = $titre;
     $this->dateDeSortieFrance = new DateTime($dateDeSortieFrance);
     $this->dure = $dure;
     $this->synopsis = $synopsis;
     $this->genre =$genre;
-    // $this->realisateur = $realisateur;
-    $this->audition = [];
+    $this->realisateur = $realisateur;
+    $this->auditions = [];
+    $this->realisateur->addFilm($this);
+    $this->genre->addFilm($this);
   
 }
 
 
 
 //------------------------------------------------------------------getter setter
+
+    
+
+    /**
+     * Get the value of genre
+     */ 
+    public function getGenre()
+    {
+        return $this->genre;
+    }
+
+    /**
+     * Set the value of genre
+     *
+     * @return  self
+     */ 
+    public function setGenre($genre)
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
     /**
      * Get the value of titre
      */ 
@@ -146,6 +170,31 @@ public function __construct( string $titre, string $dateDeSortieFrance, int $dur
     }
 
 
+public function distributionDufilm()
+{
+    $result ="<h2> $this->titre a la distribution suivante : </h2>";
+    foreach ($this->auditions as $audition) 
+    {
+      $result.= $audition->getActeur()."<br>";
+    }
+return $result;
 
-    
+}
+
+
+public function dureeHeure()
+{
+    $minutes=$this->dure;
+    $hours  = floor($minutes/60); 
+    $minutes = $minutes % 60;
+    $result = $hours."h". $minutes."m <br>";
+    return $result;
+}
+
+public function dateDesortieFR()
+{
+     return $this->dateDeSortieFrance->format('d-m-Y')."<br>";
+}
+
+
 }

@@ -1,6 +1,6 @@
 <?php
 
-class Realisateur
+class Realisateur extends Personne
 {
     private array $films;
 
@@ -19,7 +19,7 @@ class Realisateur
      */ 
     public function getFilm()
     {
-        return $this->film;
+        return $this->films;
     }
 
     /**
@@ -29,15 +29,30 @@ class Realisateur
      */ 
     public function setFilm($film)
     {
-        $this->film = $film;
+        $this->films = $film;
 
         return $this;
     }
 
 
-    
+
+
+//-----------------------------------------------methode
+
+
 public function addFilm (Film $film)
 {
     $this->films[]=$film;
 }
+
+
+public function filmographie() 
+    {
+        $result ="<h2> $this->nom $this->prenom a realisé les film suivant : </h2>";
+        foreach ($this->films as $film) 
+        {
+          $result.= $film->getTitre()."<br>";
+        }
+    return $result;
+    }
 }
